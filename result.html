@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MNIST AI LAB — Results</title>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="./index.html">MNIST AI LAB</a>
+  <nav><a href="./index.html">LAB</a><a class="active" href="./result.html">RESULTS</a></nav>
+</header>
+<main>
+<section class="hero compact">
+  <p class="eyebrow">TEST SET / INTERNAL VIEWER</p>
+  <h1>See what the<br><em>network sees.</em></h1>
+  <p class="lede">Original MNIST samples, probabilities, and intermediate CNN feature maps from your evaluation JSON.</p>
+</section>
+
+<section class="results-toolbar">
+  <button id="prev">← PREV</button>
+  <div><span>SAMPLE</span> <b id="sample-number">—</b></div>
+  <button id="next">NEXT →</button>
+</section>
+
+<section class="result-grid">
+  <div class="sample-card">
+    <div class="section-head"><span>ORIGINAL IMAGE</span><span id="truth">TRUE —</span></div>
+    <canvas id="original" width="280" height="280"></canvas>
+    <div class="prediction-strip"><span>PREDICTED</span><b id="result-pred">—</b><span>CONFIDENCE</span><b id="result-conf">—</b></div>
+    <div class="prob-list compact-probs" id="result-probs"></div>
+  </div>
+  <div class="maps-card">
+    <div class="section-head"><span>CONV1 FEATURE MAPS</span><span>26 × 26 × 32</span></div>
+    <div id="conv1" class="feature-grid"></div>
+  </div>
+</section>
+
+<section class="maps-card second-map">
+  <div class="section-head"><span>CONV2 FEATURE MAPS</span><span>11 × 11 × 64</span></div>
+  <div id="conv2" class="feature-grid"></div>
+</section>
+
+<p id="result-status" class="status"></p>
+</main>
+<section class="diagnostics" id="diagnostics">
+  <div class="section-head"><span>DIAGNOSTICS</span><span>CAFE24 / BROWSER</span></div>
+  <p id="diag-text">Checking page environment…</p>
+</section>
+<footer><span>MNIST AI LAB</span><span>CAFE24 DEPLOYMENT BUILD</span></footer>
+<script src="./result.js"></script><script>document.getElementById("diag-text").textContent="Page URL: "+location.href+" · Data path: "+new URL("./data/test_evaluation.json",document.baseURI).href;</script>
+</body>
+</html>

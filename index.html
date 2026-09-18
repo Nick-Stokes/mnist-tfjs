@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MNIST AI LAB</title>
+<link rel="stylesheet" href="./style.css">
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.22.0"></script>
+</head>
+<body>
+<div id="intro" class="intro"><div>MNIST AI LAB</div></div>
+<header class="site-header">
+  <a class="brand" href="./index.html">MNIST AI LAB</a>
+  <nav><a class="active" href="./index.html">LAB</a><a href="./result.html">RESULTS</a></nav>
+</header>
+
+<main>
+<section class="hero">
+  <p class="eyebrow">BROWSER-BASED CNN INFERENCE</p>
+  <h1>Draw a digit.<br><em>Let the model decide.</em></h1>
+  <p class="lede">A small convolutional neural network trained on MNIST, running directly in your browser.</p>
+</section>
+
+<section class="lab-grid">
+  <div class="draw-panel">
+    <div class="section-head"><span>01 / INPUT</span><span id="model-status">MODEL — CHECKING</span></div>
+    <div class="canvas-wrap"><canvas id="draw-canvas" width="560" height="560"></canvas></div>
+    <div class="controls">
+      <button id="clear-btn">CLEAR</button>
+      <button id="predict-btn" class="primary">PREDICT</button>
+    </div>
+    <p id="status" class="status">Loading TensorFlow.js model…</p>
+  </div>
+
+  <div class="prediction-panel">
+    <div class="section-head"><span>02 / OUTPUT</span><span>CNN / 10 CLASSES</span></div>
+    <div class="prediction-main">
+      <span class="label">PREDICTED DIGIT</span>
+      <strong id="predicted">—</strong>
+      <div class="confidence"><span>CONFIDENCE</span><b id="confidence">—</b></div>
+    </div>
+    <div class="prob-list" id="prob-list"></div>
+  </div>
+</section>
+
+<section class="training">
+  <div class="section-head"><span>03 / TRAINING TRACE</span><span id="training-status">DATA — CHECKING</span></div>
+  <div class="training-layout">
+    <div>
+      <h2>Loss & accuracy<br><em>over five epochs.</em></h2>
+      <p class="muted">Loaded from <code>data/training_log.json</code>. The page does not contain the training data; add your own JSON file before upload.</p>
+    </div>
+    <div class="chart-box"><canvas id="training-chart"></canvas></div>
+  </div>
+</section>
+</main>
+
+<section class="diagnostics" id="diagnostics">
+  <div class="section-head"><span>DIAGNOSTICS</span><span>CAFE24 / BROWSER</span></div>
+  <p id="diag-text">Checking page environment…</p>
+</section>
+<footer><span>MNIST AI LAB</span><span>CAFE24 DEPLOYMENT BUILD</span></footer>
+<script src="./app.js"></script><script>document.getElementById("diag-text").textContent="Page URL: "+location.href+" · Data path: "+new URL("./data/training_log.json",document.baseURI).href+" · Model: GitHub Raw";</script>
+</body>
+</html>
