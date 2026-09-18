@@ -1,0 +1,96 @@
+{
+  "epochs": [
+    {
+      "epoch": 1,
+      "loss": 0.18139393627643585,
+      "accuracy": 0.9470832943916321,
+      "val_loss": 0.06143103912472725,
+      "val_accuracy": 0.9825000166893005
+    },
+    {
+      "epoch": 2,
+      "loss": 0.05123351514339447,
+      "accuracy": 0.984291672706604,
+      "val_loss": 0.053035661578178406,
+      "val_accuracy": 0.9838333129882812
+    },
+    {
+      "epoch": 3,
+      "loss": 0.03445826843380928,
+      "accuracy": 0.9888749718666077,
+      "val_loss": 0.038118574768304825,
+      "val_accuracy": 0.9892500042915344
+    },
+    {
+      "epoch": 4,
+      "loss": 0.026136232540011406,
+      "accuracy": 0.9912291765213013,
+      "val_loss": 0.039798587560653687,
+      "val_accuracy": 0.9890833497047424
+    },
+    {
+      "epoch": 5,
+      "loss": 0.019088558852672577,
+      "accuracy": 0.9937499761581421,
+      "val_loss": 0.03953854739665985,
+      "val_accuracy": 0.9884999990463257
+    }
+  ],
+  "config": {
+    "epochs": 5,
+    "batch_size": 64,
+    "optimizer": "adam",
+    "loss": "sparseCategoricalCrossentropy",
+    "validation_split": 0.2,
+    "architecture": [
+      {
+        "type": "Conv2D",
+        "filters": 32,
+        "kernel_size": [
+          3,
+          3
+        ],
+        "activation": "relu",
+        "name": "conv1"
+      },
+      {
+        "type": "MaxPooling2D",
+        "pool_size": [
+          2,
+          2
+        ]
+      },
+      {
+        "type": "Conv2D",
+        "filters": 64,
+        "kernel_size": [
+          3,
+          3
+        ],
+        "activation": "relu",
+        "name": "conv2"
+      },
+      {
+        "type": "MaxPooling2D",
+        "pool_size": [
+          2,
+          2
+        ]
+      },
+      {
+        "type": "Flatten"
+      },
+      {
+        "type": "Dense",
+        "units": 128,
+        "activation": "relu"
+      },
+      {
+        "type": "Dense",
+        "units": 10,
+        "activation": "softmax",
+        "name": "output"
+      }
+    ]
+  }
+}
